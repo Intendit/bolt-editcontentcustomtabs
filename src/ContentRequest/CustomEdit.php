@@ -264,6 +264,11 @@ class CustomEdit extends Edit
                     $groups[$group]['fields'][] = 'relation_' . $relationName;
                 }
             }
+        } else {
+            if ($has['relations'] || $has['incoming_relations']) {
+                $addGroup('relations', Trans::__('contenttypes.generic.group.relations'));
+                $groups['relations']['fields'][] = '*relations';
+            }            
         }
 
         /*
